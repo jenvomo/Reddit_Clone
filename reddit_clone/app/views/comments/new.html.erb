@@ -1,0 +1,14 @@
+<h4>Add Comment</h4>
+<form action="<%= comments_url %>" method="post">
+  <%= auth_token %>
+
+  <label>
+    Comment
+    <input type="text" name="comment[body]">
+  </label>
+
+  <input type="hidden" name="comment[post_id]" value="<%= params[:post_id] %>">
+
+  <input type="submit" value="Add Comment">
+
+</form>

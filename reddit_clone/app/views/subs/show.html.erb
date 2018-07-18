@@ -5,7 +5,7 @@
 
 <h2>Posts</h2>
 <% @sub.posts.each do |post| %>
-<%= post.title %>
+<a href="<%= post_url(post) %>"><%= post.title %></a>
 <% end %>
 
 <h2>Add Post</h2>
