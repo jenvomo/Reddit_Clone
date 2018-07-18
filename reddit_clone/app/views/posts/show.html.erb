@@ -1,0 +1,13 @@
+  <h1>Title: <%=@post.title%></h1>
+  <h2>URL: <%= @post.url %></h2>
+  <h3>Content: <%=@post.content%></h3>
+
+  <a href="<%=subs_url%>">Subs</a>
+
+  <% @post.subs.each do |sub| %>
+    <a href="<%=sub_url(sub)%>"><%= sub.title %></a>
+  <% end %>
+
+  <% @post.comments.each do |com| %>
+    <%= com.body %>
+  <% end %>

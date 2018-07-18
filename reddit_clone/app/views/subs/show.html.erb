@@ -1,0 +1,41 @@
+
+<h2>Title: <%= @sub.title %></h2>
+<h3>Desc: <%= @sub.description %></h3>
+<h4>Moderator: <%= @sub.moderator.username %></h4>
+
+<h2>Posts</h2>
+<% @sub.posts.each do |post| %>
+<%= post.title %>
+<% end %>
+
+<h2>Add Post</h2>
+
+<form action="<%= posts_url %>" method="post">
+  <%= auth_token %>
+  <label>
+    Title
+    <input type="text" name="post[title]" value="">
+  </label>
+
+  <label>
+    URL
+    <input type="text" name="post[url]" value="">
+  </label>
+
+  <label>
+    Content
+    <input type="text" name="post[content]" value="">
+  </label>
+
+
+
+  <% Sub.all.each do |sub| %>
+
+    <label>
+    <input type="checkbox" name="post[sub_ids][]" value="<%= sub.id %>">
+    <%= sub.title %>
+    </label>
+  <% end %>
+
+  <input type="submit" name="" value="Add Post">
+</form>

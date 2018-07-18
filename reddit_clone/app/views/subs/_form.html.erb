@@ -1,0 +1,25 @@
+<% if type == :new
+    action = subs_url
+    button_txt = 'Create Sub'
+  else
+    action = sub_url(@sub)
+    button_txt = 'Edit Sub'
+  end
+%>
+
+
+
+<form action="<%= action %>" method="post">
+  <%= auth_token %>
+  <label>
+    Title
+    <input type="text" name="sub[title]" value="<%= @sub.title %>">
+  </label>
+
+  <label>
+    Description
+    <input type="text" name="sub[description]" value="<%= @sub.description %>">
+  </label>
+
+  <input type="submit" name="" value="<%= button_txt %>">
+</form>
