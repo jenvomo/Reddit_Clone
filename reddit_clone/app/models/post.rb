@@ -30,4 +30,11 @@ class Post < ApplicationRecord
 
   has_many :comments,
   dependent: :destroy
+
+  # def comments_by_parent
+  #
+  #   self.comments.each do |com|
+  #     comments_by_parent[com.parent_comment_id] << com
+  #   end
+  # end
 end

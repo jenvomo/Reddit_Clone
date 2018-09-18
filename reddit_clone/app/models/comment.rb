@@ -27,5 +27,13 @@ class Comment < ApplicationRecord
   foreign_key: :author_id,
   class_name: :User
 
+  def all_comments
+    return [self] unless self.child_comments
+    coms = []
 
+    self.child_comments.each do |com|
+      coms += com.all_comments
+    end
+    coms
+  end
 end

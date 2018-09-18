@@ -1,6 +1,6 @@
 <h2>Comment</h2>
 <h3><%= @comment.body %></h3>
-
+<h4>Reply to Comment</h4>
 <form action="<%= comments_url %>" method="post">
   <%= auth_token %>
   <input type="hidden" name="comment[post_id]" value="<%= @comment.post.id %>">
@@ -16,5 +16,5 @@
 </form>
 
 <% @comment.child_comments.each do |com| %>
-<%= com.body %>
+  <a href="<%= comment_url(com) %>"><%= com.body %></a>
 <% end %>
