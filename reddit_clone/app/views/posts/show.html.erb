@@ -3,11 +3,14 @@
   <h3>Content: <%=@post.content%></h3>
 
   <form class="" action="<%= post_url %>" method="post">
+    <%= auth_token %>
     <input type="hidden" name="_method" value="delete">
     <button type="submit" name="button">Delete Post</button>
   </form>
 
-  <a href="<%=subs_url%>">Subs</a>
+  <a href="<%= edit_post_url(@post) %>">Edit Post</a>
+
+  <a href="<%= subs_url %>">Subs</a>
 
   <% @post.subs.each do |sub| %>
     <a href="<%=sub_url(sub)%>"><%= sub.title %></a>
