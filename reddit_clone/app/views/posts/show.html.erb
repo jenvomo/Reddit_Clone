@@ -2,6 +2,11 @@
   <h2>URL: <%= @post.url %></h2>
   <h3>Content: <%=@post.content%></h3>
 
+  <form class="" action="<%= post_url %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" name="button">Delete Post</button>
+  </form>
+
   <a href="<%=subs_url%>">Subs</a>
 
   <% @post.subs.each do |sub| %>
